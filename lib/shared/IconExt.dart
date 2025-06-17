@@ -4,7 +4,11 @@ enum AppIcon {
   home(path: 'assets/icons/home.png'),
   bell(path: 'assets/icons/bell.png'),
   boomMark(path: 'assets/icons/bookmark.png'),
-  profile(path: 'assets/icons/person.png');
+  profile(path: 'assets/icons/person.png'),
+  search(path: 'assets/icons/search.png'),
+  logout(path: 'assets/icons/LogOut.png'),
+  chevron_Right(path: 'assets/icons/chevronRight.png'),
+  chevron_Left(path: 'assets/icons/chebronLeft.png');
 
   final String path;
   const AppIcon({required this.path});

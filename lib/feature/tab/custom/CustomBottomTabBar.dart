@@ -24,7 +24,7 @@ class CustomBottomTabBar extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         color: AppColor.white,
-        borderRadius: BorderRadius.circular(30)
+        borderRadius: BorderRadius.circular(20)
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
