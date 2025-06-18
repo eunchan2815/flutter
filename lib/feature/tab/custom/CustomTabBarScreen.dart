@@ -22,6 +22,7 @@ class _CustomTabBarScreenState extends State<CustomTabBarScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: _pages[_currentIndex],
       bottomNavigationBar: CustomBottomTabBar(
         currentIndex: _currentIndex,

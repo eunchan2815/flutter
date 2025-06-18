@@ -18,13 +18,21 @@ class CustomBottomTabBar extends StatelessWidget {
     return Container(
       height: 65, // 탭바 높이 조정
       margin: EdgeInsets.only(
-          left: 20,
-          right: 20,
-          bottom: 30  // 바닥에서 더 띄움
+        left: 20,
+        right: 20,
+        bottom: 30, // 바닥에서 더 띄움
       ),
       decoration: BoxDecoration(
         color: AppColor.white,
-        borderRadius: BorderRadius.circular(20)
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.05),
+            spreadRadius: 2,
+            blurRadius: 4,
+            offset: Offset(0, 1)
+          ),
+        ],
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,

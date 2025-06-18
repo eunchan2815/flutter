@@ -8,9 +8,11 @@ enum AppIcon {
   search(path: 'assets/icons/search.png'),
   logout(path: 'assets/icons/LogOut.png'),
   chevron_Right(path: 'assets/icons/chevronRight.png'),
-  chevron_Left(path: 'assets/icons/chebronLeft.png');
+  chevron_Left(path: 'assets/icons/chevronLeft.png'),
+  shoppingCart(path: 'assets/icons/cart.png');
 
   final String path;
+
   const AppIcon({required this.path});
 }
 
@@ -22,9 +24,7 @@ extension AppIconExtension on AppIcon {
     BoxFit? fit,
     Color? color,
   }) {
-    final String actualPath = fill
-        ? _filledPathIfExists() ?? path
-        : path;
+    final String actualPath = fill ? _filledPathIfExists() ?? path : path;
 
     return Image.asset(
       actualPath,
