@@ -1,23 +1,26 @@
 import 'package:first_flutter_app/shared/FontExt.dart';
 import 'package:flutter/material.dart';
 
-class DetailScreen extends StatelessWidget {
-  final String title;
-  const DetailScreen({Key? key, required this.title}) : super(key: key);
+class DetailProductScreen extends StatelessWidget {
+  final String productName;
+  const DetailProductScreen({
+    Key? key,
+    required this.productName
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-          backgroundColor: Colors.white,
-          title: const SizedBox.shrink(),
+        backgroundColor: Colors.white,
+        title: const SizedBox.shrink(),
       ),
       body: Center(
         child: Text(
-          "$title 화면입니다",
+            "${productName}",
           style: AppFont.bold(20),
-        ),
+        )
       )
     );
   }

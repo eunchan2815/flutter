@@ -1,14 +1,57 @@
+import 'package:first_flutter_app/feature/home/Model/CategoryModel.dart';
+import 'package:first_flutter_app/feature/home/component/category_button.dart';
+import 'package:first_flutter_app/feature/home/component/product_screen.dart';
+import 'package:first_flutter_app/feature/home/detail_product_screen.dart';
+import 'package:first_flutter_app/feature/profile/detail_screen.dart';
 import 'package:first_flutter_app/shared/FontExt.dart';
 import 'package:first_flutter_app/shared/IconExt.dart';
-import 'package:first_flutter_app/shared/Stack/VStack.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int selectedCategoryIndex = 0;
+
+  @override
   Widget build(BuildContext context) {
+    final List<Map<String, String>> products = [
+      {
+        'image': 'assets/images/product1.png',
+        'title': 'Black Simple Lamp',
+        'price': '12.00',
+      },
+      {
+        'image': 'assets/images/product2.png',
+        'title': 'Minimal Stand',
+        'price': '25.00',
+      },
+      {
+        'image': 'assets/images/product3.png',
+        'title': 'Coffee Chair',
+        'price': '20.00',
+      },
+      {
+        'image': 'assets/images/product4.png',
+        'title': 'Simple Desk',
+        'price': '50.00',
+      },
+    ];
+
+    final List<Category> categories = [
+      Category(icon: AppIcon.star, label: "Popular"),
+      Category(icon: AppIcon.chair, label: "Chair"),
+      Category(icon: AppIcon.table, label: "Table"),
+      Category(icon: AppIcon.sofa, label: "Armchair"),
+      Category(icon: AppIcon.bed, label: "Bed"),
+      Category(icon: AppIcon.lamp, label: "Lamp"),
+    ];
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: CustomScrollView(
@@ -23,7 +66,10 @@ class HomeScreen extends StatelessWidget {
             ),
             title: Column(
               children: [
-                Text("Make home", style: AppFont.regular(16, color: Colors.grey)),
+                Text(
+                  "Make home",
+                  style: AppFont.regular(16, color: Colors.grey),
+                ),
                 Text("BEAUTIFUL", style: AppFont.bold(18)),
               ],
             ),
@@ -43,49 +89,60 @@ class HomeScreen extends StatelessWidget {
           ),
 
           SliverToBoxAdapter(
-              child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                child: VStack(
-                  spacing: 14,
-                    children: [
-                      Container(
-                        width: 100,
-                        height: 100,
-                        color: Colors.blue,
-                      ),
-                      Container(
-                        width: 100,
-                        height: 100,
-                        color: Colors.blue,
-                      ),
-                      Container(
-                        width: 100,
-                        height: 100,
-                        color: Colors.blue,
-                      ),
-                      Container(
-                        width: 100,
-                        height: 100,
-                        color: Colors.blue,
-                      ),
-                      Container(
-                        width: 100,
-                        height: 100,
-                        color: Colors.blue,
-                      ),
-                      Container(
-                        width: 100,
-                        height: 100,
-                        color: Colors.blue,
-                      ),
-                      Container(
-                        width: 100,
-                        height: 100,
-                        color: Colors.blue,
-                      ),
-                    ],
-                )
-              )
+            child: Container(
+              height: 100,
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: categories.length,
+                padding: EdgeInsets.symmetric(horizontal: 5),
+                itemBuilder: (context, index) {
+                  final category = categories[index];
+
+                  return CategoryButton(
+                    icon: category.icon,
+                    label: category.label,
+                    isSelected: selectedCategoryIndex == index,
+                    onTap: () {
+                      setState(() {
+                        selectedCategoryIndex = index;
+                      });
+                    },
+                  );
+                },
+              ),
+            ),
+          ),
+
+          SliverPadding(
+            padding: EdgeInsets.all(20),
+            sliver: SliverGrid(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 0.63,
+                crossAxisSpacing: 30,
+                mainAxisSpacing: 20,
+              ),
+              delegate: SliverChildBuilderDelegate((context, index) {
+                final product = products[index];
+                return ProductScreen(
+                  image: product['image']!,
+                  title: product['title']!,
+                  price: product['price']!,
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                            DetailProductScreen(
+                                productName: product['title']!
+                            ),
+                        )
+                    );
+                  },
+                );
+              }, childCount: products.length),
+            ),
           ),
         ],
       ),

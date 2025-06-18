@@ -27,7 +27,7 @@ class CustomBottomTabBar extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withOpacity(0.04),
             spreadRadius: 2,
             blurRadius: 4,
             offset: Offset(0, 1)

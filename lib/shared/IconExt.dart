@@ -9,7 +9,14 @@ enum AppIcon {
   logout(path: 'assets/icons/LogOut.png'),
   chevron_Right(path: 'assets/icons/chevronRight.png'),
   chevron_Left(path: 'assets/icons/chevronLeft.png'),
-  shoppingCart(path: 'assets/icons/cart.png');
+  shoppingCart(path: 'assets/icons/cart.png'),
+  toBag(path: 'assets/icons/AddBag.png'),
+  star(path: 'assets/icons/Star.png'),
+  chair(path: 'assets/icons/chair.png'),
+  table(path: 'assets/icons/table.png'),
+  sofa(path: 'assets/icons/sofa.png'),
+  bed(path: 'assets/icons/bed.png'),
+  lamp(path: 'assets/icons/lamp.png');
 
   final String path;
 
