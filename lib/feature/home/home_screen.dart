@@ -1,7 +1,7 @@
+import 'package:first_flutter_app/feature/home/Detail/detail_product_screen.dart';
 import 'package:first_flutter_app/feature/home/Model/CategoryModel.dart';
 import 'package:first_flutter_app/feature/home/component/category_button.dart';
 import 'package:first_flutter_app/feature/home/component/product_screen.dart';
-import 'package:first_flutter_app/feature/home/detail_product_screen.dart';
 import 'package:first_flutter_app/feature/profile/detail_screen.dart';
 import 'package:first_flutter_app/shared/FontExt.dart';
 import 'package:first_flutter_app/shared/IconExt.dart';
@@ -135,7 +135,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         MaterialPageRoute(
                             builder: (context) =>
                             DetailProductScreen(
-                                productName: product['title']!
+                                productName: product['title']!,
+                                productImage: product['image']!,
+                                price: product['price']!
                             ),
                         )
                     );
