@@ -40,7 +40,7 @@ class ProfileScreen extends StatelessWidget {
                 print("검색");
               },
             ),
-            title: Text("Profile", style: AppFont.regular(20)),
+            title: Text("Profile", style: AppFont.bold(18)),
             actions: [
               CupertinoButton(
                 padding: EdgeInsets.zero,

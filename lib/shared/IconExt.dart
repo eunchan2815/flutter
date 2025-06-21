@@ -16,7 +16,8 @@ enum AppIcon {
   table(path: 'assets/icons/table.png'),
   sofa(path: 'assets/icons/sofa.png'),
   bed(path: 'assets/icons/bed.png'),
-  lamp(path: 'assets/icons/lamp.png');
+  lamp(path: 'assets/icons/lamp.png'),
+  xmark(path: 'assets/icons/Xmark.png');
 
   final String path;
 
